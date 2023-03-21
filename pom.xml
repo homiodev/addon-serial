@@ -8,14 +8,6 @@
   <name>Serial</name>
   <packaging>jar</packaging>
 
-  <dependencies>
-    <dependency>
-      <artifactId>commons-collections4</artifactId>
-      <groupId>org.apache.commons</groupId>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
-
   <parent>
     <artifactId>addon-parent</artifactId>
     <groupId>org.touchhome</groupId>
