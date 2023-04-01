@@ -1,8 +1,8 @@
-package org.touchhome.bundle.serial.settings.header;
+package org.homio.bundle.serial.settings.header;
 
 import com.fazecast.jSerialComm.SerialPort;
-import org.touchhome.bundle.api.setting.SettingPluginOptionsPort;
-import org.touchhome.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.homio.bundle.api.setting.SettingPluginOptionsPort;
+import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
 
 public class ConsoleHeaderSerialPortSetting implements ConsoleHeaderSettingPlugin<SerialPort>, SettingPluginOptionsPort {
 

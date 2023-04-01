@@ -1,7 +1,7 @@
-package org.touchhome.bundle.serial;
+package org.homio.bundle.serial;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfEmpty;
-import static org.touchhome.bundle.api.util.Constants.PRIMARY_COLOR;
+import static org.homio.bundle.api.util.Constants.PRIMARY_COLOR;
 
 import com.fazecast.jSerialComm.SerialPort;
 import java.util.Collection;
@@ -10,18 +10,18 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.homio.bundle.api.EntityContext;
+import org.homio.bundle.api.console.ConsolePluginCommunicator;
+import org.homio.bundle.api.exception.ServerException;
+import org.homio.bundle.api.model.ActionResponseModel;
+import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.homio.bundle.api.util.FlowMap;
+import org.homio.bundle.serial.settings.header.ConsoleHeaderSerialOpenPortSetting;
+import org.homio.bundle.serial.settings.header.ConsoleHeaderSerialPortBaudRateSetting;
+import org.homio.bundle.serial.settings.header.ConsoleHeaderSerialPortFlowControlSetting;
+import org.homio.bundle.serial.settings.header.ConsoleHeaderSerialPortSendEndLine;
+import org.homio.bundle.serial.settings.header.ConsoleHeaderSerialPortSetting;
 import org.springframework.stereotype.Component;
-import org.touchhome.bundle.api.EntityContext;
-import org.touchhome.bundle.api.console.ConsolePluginCommunicator;
-import org.touchhome.bundle.api.exception.ServerException;
-import org.touchhome.bundle.api.model.ActionResponseModel;
-import org.touchhome.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
-import org.touchhome.bundle.api.util.FlowMap;
-import org.touchhome.bundle.serial.settings.header.ConsoleHeaderSerialOpenPortSetting;
-import org.touchhome.bundle.serial.settings.header.ConsoleHeaderSerialPortBaudRateSetting;
-import org.touchhome.bundle.serial.settings.header.ConsoleHeaderSerialPortFlowControlSetting;
-import org.touchhome.bundle.serial.settings.header.ConsoleHeaderSerialPortSendEndLine;
-import org.touchhome.bundle.serial.settings.header.ConsoleHeaderSerialPortSetting;
 
 @Component
 @RequiredArgsConstructor

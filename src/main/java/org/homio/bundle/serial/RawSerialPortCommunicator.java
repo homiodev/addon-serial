@@ -1,4 +1,4 @@
-package org.touchhome.bundle.serial;
+package org.homio.bundle.serial;
 
 import static com.fazecast.jSerialComm.SerialPort.TIMEOUT_NONBLOCKING;
 
@@ -8,11 +8,11 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections4.queue.CircularFifoQueue;
-import org.touchhome.bundle.api.EntityContext;
-import org.touchhome.bundle.api.console.ConsolePluginCommunicator;
-import org.touchhome.bundle.api.console.ConsolePluginComplexLines;
-import org.touchhome.bundle.api.port.BaseSerialPort;
-import org.touchhome.bundle.api.port.PortFlowControl;
+import org.homio.bundle.api.EntityContext;
+import org.homio.bundle.api.console.ConsolePluginCommunicator;
+import org.homio.bundle.api.console.ConsolePluginComplexLines;
+import org.homio.bundle.api.port.BaseSerialPort;
+import org.homio.bundle.api.port.PortFlowControl;
 
 @Log4j2
 public class RawSerialPortCommunicator extends BaseSerialPort {

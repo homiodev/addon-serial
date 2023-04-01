@@ -1,7 +1,7 @@
-package org.touchhome.bundle.serial.settings.header;
+package org.homio.bundle.serial.settings.header;
 
-import org.touchhome.bundle.api.setting.SettingPluginToggle;
-import org.touchhome.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.homio.bundle.api.setting.SettingPluginToggle;
+import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
 
 public class ConsoleHeaderSerialOpenPortSetting implements ConsoleHeaderSettingPlugin<Boolean>, SettingPluginToggle {
 
