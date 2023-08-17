@@ -1,4 +1,10 @@
 {
+  "CONSOLE": {
+    "serial": "Serial monitor"
+  },
+  "serial_port": {
+    "exception": "Unknown exception occurs while communicate with port"
+  },
   "placeholder": {
     "st_ConsoleHeaderSerialPortSetting": "Serial port",
     "st_ConsoleHeaderSerialPortSetting_unavailable": "Ports not found",

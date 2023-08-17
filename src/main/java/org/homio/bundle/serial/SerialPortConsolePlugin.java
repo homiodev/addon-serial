@@ -58,7 +58,7 @@ public class SerialPortConsolePlugin implements ConsolePluginCommunicator {
       String portName = this.rawSerialPortCommunicator.getSerialPort() == null ? "-" :
           this.rawSerialPortCommunicator.getSerialPort().getSystemPortName();
       this.rawSerialPortCommunicator.close();
-      entityContext.ui().sendInfoMessage("SERIAL.PORT_CLOSED", FlowMap.of("PORT", portName));
+      entityContext.ui().sendInfoMessage("serial.port_closed", FlowMap.of("PORT", portName));
       this.rawSerialPortCommunicator = null;
     }
 
@@ -66,7 +66,7 @@ public class SerialPortConsolePlugin implements ConsolePluginCommunicator {
       SerialPort commPort = entityContext.setting().getValue(ConsoleHeaderSerialPortSetting.class);
       if (commPort == null) {
         entityContext.setting().setValue(ConsoleHeaderSerialOpenPortSetting.class, false);
-        throw new ServerException("SERIAL.NO_PORT", FlowMap.of("PORT",
+        throw new ServerException("serial.no_port", FlowMap.of("PORT",
             defaultIfEmpty(entityContext.setting().getRawValue(ConsoleHeaderSerialPortSetting.class), "-")));
       }
       try {
@@ -74,7 +74,7 @@ public class SerialPortConsolePlugin implements ConsolePluginCommunicator {
       } catch (Exception ex) {
         rawSerialPortCommunicator = null;
         entityContext.setting().setValue(ConsoleHeaderSerialOpenPortSetting.class, false);
-        throw new ServerException("SERIAL.UNABLE_OPEN", FlowMap.of("PORT", commPort.getSystemPortName()));
+        throw new ServerException("serial.unable_open", FlowMap.of("PORT", commPort.getSystemPortName()));
       }
     }
   }
@@ -88,7 +88,7 @@ public class SerialPortConsolePlugin implements ConsolePluginCommunicator {
     if (!opened) {
       throw new RuntimeException("Unable open port");
     } else {
-      entityContext.ui().sendSuccessMessage("SERIAL.OPEN_SUCCESS", FlowMap.of("PORT", commPort.getSystemPortName()));
+      entityContext.ui().sendSuccessMessage("serial.open_success", FlowMap.of("PORT", commPort.getSystemPortName()));
     }
   }
 
@@ -119,7 +119,7 @@ public class SerialPortConsolePlugin implements ConsolePluginCommunicator {
       }
     } else {
       SerialPort commPort = entityContext.setting().getValue(ConsoleHeaderSerialPortSetting.class);
-      return ActionResponseModel.showError("SERIAL.NO_OPEN_PORT", "PORT", commPort == null ? "-" : commPort.getSystemPortName());
+      return ActionResponseModel.showError("serial.no_open_port", "PORT", commPort == null ? "-" : commPort.getSystemPortName());
     }
     return null;
   }

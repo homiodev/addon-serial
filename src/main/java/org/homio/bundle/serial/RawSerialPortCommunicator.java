@@ -24,7 +24,7 @@ public class RawSerialPortCommunicator extends BaseSerialPort {
   public RawSerialPortCommunicator(SerialPort serialPort, EntityContext entityContext,
       ConsolePluginCommunicator consolePluginCommunicator) {
     super("", "Serial", entityContext, 9600, PortFlowControl.FLOWCONTROL_OUT_NONE, () ->
-        entityContext.ui().sendErrorMessage("SERIAL_PORT.EXCEPTION"), null, log);
+        entityContext.ui().sendErrorMessage("serial_port.exception"), null, log);
     this.serialPort = serialPort;
     this.communicatorConsolePlugin = consolePluginCommunicator;
   }
