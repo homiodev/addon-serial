@@ -1,17 +1,19 @@
 package org.homio.bundle.serial.settings.header;
 
-import org.homio.bundle.api.setting.SettingPluginToggle;
-import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.homio.api.model.Icon;
+import org.homio.api.setting.SettingPluginToggle;
+import org.homio.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public class ConsoleHeaderSerialOpenPortSetting implements ConsoleHeaderSettingPlugin<Boolean>, SettingPluginToggle {
 
   @Override
-  public String getIcon() {
-    return "fas fa-door-open";
+  public @NotNull Icon getIcon() {
+    return new Icon("fas fa-door-open");
   }
 
   @Override
-  public String getToggleIcon() {
-    return "fas fa-door-closed";
+  public @NotNull Icon getToggleIcon() {
+    return new Icon("fas fa-door-closed");
   }
 }

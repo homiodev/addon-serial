@@ -2,15 +2,17 @@ package org.homio.bundle.serial.settings.header;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.homio.bundle.api.setting.SettingPluginOptionsEnum;
-import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.homio.api.model.Icon;
+import org.homio.api.setting.SettingPluginOptionsEnum;
+import org.homio.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public class ConsoleHeaderSerialPortSendEndLine implements ConsoleHeaderSettingPlugin<ConsoleHeaderSerialPortSendEndLine.EndLineType>,
-    SettingPluginOptionsEnum<ConsoleHeaderSerialPortSendEndLine.EndLineType> {
+  SettingPluginOptionsEnum<ConsoleHeaderSerialPortSendEndLine.EndLineType> {
 
   @Override
-  public String getIcon() {
-    return "fas fa-digital-tachograph";
+  public Icon getIcon() {
+    return new Icon("fas fa-digital-tachograph");
   }
 
   @Override
@@ -19,7 +21,7 @@ public class ConsoleHeaderSerialPortSendEndLine implements ConsoleHeaderSettingP
   }
 
   @Override
-  public Class<EndLineType> getType() {
+  public @NotNull Class<EndLineType> getType() {
     return EndLineType.class;
   }
 
