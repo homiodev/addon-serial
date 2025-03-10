@@ -2,16 +2,17 @@ package org.homio.bundle.serial.settings.header;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.homio.bundle.api.port.PortFlowControl;
-import org.homio.bundle.api.setting.SettingPluginOptionsEnum;
-import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
+import org.homio.api.model.Icon;
+import org.homio.api.port.PortFlowControl;
+import org.homio.api.setting.SettingPluginOptionsEnum;
+import org.homio.api.setting.console.header.ConsoleHeaderSettingPlugin;
 
 public class ConsoleHeaderSerialPortFlowControlSetting implements SettingPluginOptionsEnum<ConsoleHeaderSerialPortFlowControlSetting.FlowControl>,
-    ConsoleHeaderSettingPlugin<ConsoleHeaderSerialPortFlowControlSetting.FlowControl> {
+  ConsoleHeaderSettingPlugin<ConsoleHeaderSerialPortFlowControlSetting.FlowControl> {
 
   @Override
-  public String getIcon() {
-    return "fas fa-wind";
+  public Icon getIcon() {
+    return new Icon("fas fa-wind");
   }
 
   @Override

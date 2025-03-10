@@ -1,18 +1,19 @@
 package org.homio.bundle.serial;
 
-import static com.fazecast.jSerialComm.SerialPort.TIMEOUT_NONBLOCKING;
-
 import com.fazecast.jSerialComm.SerialPort;
-import java.util.Collection;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections4.queue.CircularFifoQueue;
-import org.homio.bundle.api.EntityContext;
-import org.homio.bundle.api.console.ConsolePluginCommunicator;
-import org.homio.bundle.api.console.ConsolePluginComplexLines;
-import org.homio.bundle.api.port.BaseSerialPort;
-import org.homio.bundle.api.port.PortFlowControl;
+import org.homio.api.Context;
+import org.homio.api.console.ConsolePluginCommunicator;
+import org.homio.api.console.ConsolePluginComplexLines;
+import org.homio.api.port.BaseSerialPort;
+import org.homio.api.port.PortFlowControl;
+
+import java.util.Collection;
+
+import static com.fazecast.jSerialComm.SerialPort.TIMEOUT_NONBLOCKING;
 
 @Log4j2
 public class RawSerialPortCommunicator extends BaseSerialPort {
@@ -21,10 +22,10 @@ public class RawSerialPortCommunicator extends BaseSerialPort {
   @Getter
   private final CircularFifoQueue<ConsolePluginComplexLines.ComplexString> buffer = new CircularFifoQueue<>(1000);
 
-  public RawSerialPortCommunicator(SerialPort serialPort, EntityContext entityContext,
-      ConsolePluginCommunicator consolePluginCommunicator) {
+  public RawSerialPortCommunicator(SerialPort serialPort, Context entityContext,
+                                   ConsolePluginCommunicator consolePluginCommunicator) {
     super("", "Serial", entityContext, 9600, PortFlowControl.FLOWCONTROL_OUT_NONE, () ->
-        entityContext.ui().sendErrorMessage("serial_port.exception"), null, log);
+      entityContext.ui().toastr().error("serial_port.exception"), null, log);
     this.serialPort = serialPort;
     this.communicatorConsolePlugin = consolePluginCommunicator;
   }
@@ -41,7 +42,7 @@ public class RawSerialPortCommunicator extends BaseSerialPort {
   @SneakyThrows
   protected void handleSerialEvent(byte[] buf) {
     ConsolePluginComplexLines.ComplexString data =
-        ConsolePluginComplexLines.ComplexString.of(new String(buf), System.currentTimeMillis());
+      ConsolePluginComplexLines.ComplexString.of(new String(buf), System.currentTimeMillis());
     buffer.add(data);
     communicatorConsolePlugin.dataReceived(data);
   }

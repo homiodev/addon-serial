@@ -1,14 +1,15 @@
 package org.homio.bundle.serial.settings.header;
 
-import org.homio.bundle.api.setting.SettingPluginOptionsInteger;
-import org.homio.bundle.api.setting.console.header.ConsoleHeaderSettingPlugin;
-import org.homio.bundle.api.ui.field.UIFieldType;
+import org.homio.api.model.Icon;
+import org.homio.api.setting.SettingPluginOptionsInteger;
+import org.homio.api.setting.SettingType;
+import org.homio.api.setting.console.header.ConsoleHeaderSettingPlugin;
 
 public class ConsoleHeaderSerialPortBaudRateSetting implements ConsoleHeaderSettingPlugin<Integer>, SettingPluginOptionsInteger {
 
   @Override
-  public String getIcon() {
-    return "fas fa-tachometer-alt";
+  public Icon getIcon() {
+    return new Icon("fas fa-tachometer-alt");
   }
 
   @Override
@@ -17,8 +18,18 @@ public class ConsoleHeaderSerialPortBaudRateSetting implements ConsoleHeaderSett
   }
 
   @Override
-  public UIFieldType getSettingType() {
-    return UIFieldType.SelectBox;
+  public SettingType getSettingType() {
+    return SettingType.SelectBox;
+  }
+
+  @Override
+  public int getMin() {
+    return 0;
+  }
+
+  @Override
+  public int getMax() {
+    return 65556;
   }
 
   @Override
